@@ -31,9 +31,10 @@ namespace IoC.WPF
         {
             var host = Host;
             using (var scope = Services.CreateScope())
-                scope.ServiceProvider.GetRequiredService<DbInitializer>().InitializeAsync().Wait();//Необходимо подождать пока данные подгрузятся
-               
-            base.OnStartup(e);
+                await scope.ServiceProvider.GetRequiredService<DbInitializer>().InitializeAsync();
+                //scope.ServiceProvider.GetRequiredService<DbInitializer>().InitializeAsync().Wait(); // DeadLock?Необходимо подождать пока данные подгрузятся
+
+                base.OnStartup(e);
             await host.StartAsync();
         }
         protected override async void OnExit(ExitEventArgs e)
