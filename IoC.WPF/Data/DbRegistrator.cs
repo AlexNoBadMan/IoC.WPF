@@ -28,6 +28,7 @@ namespace IoC.WPF.Data
                        break;
                }
            })
+            .AddTransient<DbInitializer>()
            ;
     }
 }
