@@ -1,7 +1,7 @@
-﻿using IoC.WPF.Entityes.Base;
+﻿using IoC.WPF.Data.Entityes.Base;
 using System.Collections.Generic;
 
-namespace IoC.WPF.Entityes
+namespace IoC.WPF.Data.Entityes
 {
     public class Category : NamedEntity
     {

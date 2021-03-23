@@ -1,4 +1,4 @@
-﻿using IoC.WPF.Context;
+﻿using IoC.WPF.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +29,7 @@ namespace IoC.WPF.Data
                }
            })
             .AddTransient<DbInitializer>()
+            .AddRepositoriesInDB()
            ;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace IoC.WPF.Entityes.Base
+﻿namespace IoC.WPF.Data.Entityes.Base
 {
     public abstract class Person : NamedEntity
     {

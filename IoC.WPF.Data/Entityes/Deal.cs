@@ -1,9 +1,9 @@
-﻿using IoC.WPF.Entityes.Base;
+﻿using IoC.WPF.Data.Entityes.Base;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace IoC.WPF.Entityes
+namespace IoC.WPF.Data.Entityes
 {
-    public class Deal : Person 
+    public class Deal : Entity 
     { 
         [Column(TypeName ="decimal(18,2)")]
         public decimal Price { get; set; }

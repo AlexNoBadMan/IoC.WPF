@@ -4,10 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IoC.WPF.Views"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
         Title="{Binding Title}" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding TestCommand}"></i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <DockPanel>
+        <Border DockPanel.Dock="Top" BorderThickness="0 0 0 1">
+            
+        </Border>
+        <GroupBox Header="Бестселлеры">
+            <DataGrid ItemsSource="{Binding Bestsellers}" IsReadOnly="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Книга" Width="*" Binding="{Binding Book}"/>
+                    <DataGridTextColumn Header="Количество продаж" Binding="{Binding SellCount}"/>
+                    <DataGridTextColumn Header="Полная стоимость" Binding="{Binding SumCost}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+    </DockPanel>
 </Window>

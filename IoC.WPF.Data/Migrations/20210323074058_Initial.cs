@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace IoC.WPF.Migrations
+namespace IoC.WPF.Data.Migrations
 {
     public partial class Initial : Migration
     {
@@ -78,10 +78,7 @@ namespace IoC.WPF.Migrations
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     BookId = table.Column<int>(type: "int", nullable: true),
                     SellerId = table.Column<int>(type: "int", nullable: true),
-                    BuyerId = table.Column<int>(type: "int", nullable: true),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Patronymic = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    BuyerId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {

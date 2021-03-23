@@ -1,5 +1,5 @@
-﻿using IoC.WPF.Context;
-using IoC.WPF.Entityes;
+﻿using IoC.WPF.Data.Context;
+using IoC.WPF.Data.Entityes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -27,9 +27,9 @@ namespace IoC.WPF.Data
             var timer = Stopwatch.StartNew();
             _logger.LogInformation($"Инициализация БД...");
 
-            //_logger.LogInformation($"Удаление существующей БД...");
-            //await _db.Database.EnsureDeletedAsync().ConfigureAwait(false);
-            //_logger.LogInformation($"Удаление существующей БД выполнено за {timer.ElapsedMilliseconds} мс");
+            _logger.LogInformation($"Удаление существующей БД...");
+            await _db.Database.EnsureDeletedAsync().ConfigureAwait(false);
+            _logger.LogInformation($"Удаление существующей БД выполнено за {timer.ElapsedMilliseconds} мс");
 
             _logger.LogInformation($"Миграция БД...");
             await _db.Database.MigrateAsync().ConfigureAwait(false);
@@ -123,7 +123,7 @@ namespace IoC.WPF.Data
             _logger.LogInformation($"Инициализация покупателей выполнена за {timer.ElapsedMilliseconds} мс");
         }
 
-        private const int DEALS_COUNT = 1500;
+        private const int DEALS_COUNT = 1000;
         private async Task InitializeDeals()
         {
             var timer = Stopwatch.StartNew();
